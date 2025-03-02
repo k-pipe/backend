@@ -9,7 +9,8 @@ variable "gcp_apis" {
     "pubsub",
     "storage",
     "cloudfunctions",
-    "cloudbuild"
+    "cloudbuild",
+    "run"
   ]
 }
 
