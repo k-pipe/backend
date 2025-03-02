@@ -11,8 +11,8 @@ data "google_project" "project" {
   project_id = var.project_id
 }
 
-resource "google_service_account_iam_member" "member" {
-  service_account_id = google_service_account.cloud_function_service_account.id
-  role               = "roles/iam.serviceAccountUser"
-  member             = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
-}
+#resource "google_service_account_iam_member" "member" {
+#  service_account_id = google_service_account.cloud_function_service_account.id
+#  role               = "roles/iam.serviceAccountUser"
+#  member             = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
+#}
