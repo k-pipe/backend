@@ -30,7 +30,7 @@ jobs:
     - name: Set project
       run: gcloud config set project green-k8s
     - name: 'Terraform Setup'
-      uses: hashicorp/setup-terraform@v1
+      uses: hashicorp/setup-terraform@v3
     - name: 'Terraform Init'
       run: terraform init
     - name: 'Terraform Validate'
