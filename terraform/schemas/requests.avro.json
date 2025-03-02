@@ -1,0 +1,23 @@
+
+{
+"type" : "record",
+"name" : "requests",
+"fields" :
+[
+  {
+    "name": "request_body",
+    "type": "string",
+    "doc": "A JSON string representing the request body"
+  },
+  {
+    "name": "response_body",
+    "type": "string",
+    "doc": "A JSON string representing the response body"
+  },
+  {
+    "name": "response_time",
+    "type": "int",
+    "doc": "The response time in milliseconds"
+  }
+]
+}

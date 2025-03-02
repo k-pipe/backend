@@ -1,0 +1,37 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    #- name: Update
+     # run: sudo apt-get update && sudo apt-get --only-upgrade install google-cloud-sdk-app-engine-python-extras
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+      with:
+        version: '>= 363.0.0'
+    - name: 'Version‚ gcloud CLI'
+      run: gcloud info
+    - name: Activate service account
+      run: gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+    - name: Set project
+      run: gcloud config set project green-k8s
+    - name: Install gke auth plugin
+      run: gcloud components install gke-gcloud-auth-plugin
+    - name: Terraform
+      run:  cd terraform && terraform init && terraform apply --auto-approve && cd ..

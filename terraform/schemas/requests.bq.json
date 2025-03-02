@@ -1,0 +1,44 @@
+[
+  {
+    "name": "publish_time",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED",
+    "description": "Timestamp when the command was issued"
+  },
+  {
+    "name": "message_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "ID of the pubsub message"
+  },
+  {
+    "name": "subscription_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "ID of the pubsub message"
+  },
+  {
+    "name": "attributes",
+    "type": "JSON",
+    "mode": "REQUIRED",
+    "description": "attributes assigned by pubsub2bigquery ingest"
+  },
+  {
+    "name": "request_body",
+    "type": "JSON",
+    "mode": "REQUIRED",
+    "doc": "A JSON string representing the request body"
+  },
+  {
+    "name": "response_body",
+    "type": "JSON",
+    "mode": "REQUIRED",
+    "doc": "A JSON string representing the response body"
+  },
+  {
+    "name": "response_time",
+    "type": "INT",
+    "mode": "REQUIRED",
+    "doc": "The response time in milliseconds"
+  }
+]
