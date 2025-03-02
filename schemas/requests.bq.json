@@ -18,27 +18,27 @@
     "description": "ID of the pubsub message"
   },
   {
-    "name": "attributes",
-    "type": "JSON",
+    "description": "attributes assigned by pubsub2bigquery ingest",
     "mode": "REQUIRED",
-    "description": "attributes assigned by pubsub2bigquery ingest"
+    "name": "attributes",
+    "type": "JSON"
   },
   {
+    "doc": "A JSON string representing the request body",
     "name": "request_body",
     "type": "JSON",
-    "mode": "REQUIRED",
-    "doc": "A JSON string representing the request body"
+    "mode": "REQUIRED"
   },
   {
+    "doc": "A JSON string representing the response body",
     "name": "response_body",
     "type": "JSON",
-    "mode": "REQUIRED",
-    "doc": "A JSON string representing the response body"
+    "mode": "REQUIRED"
   },
   {
+    "doc": "The response time in milliseconds",
     "name": "response_time",
     "type": "INTEGER",
-    "mode": "REQUIRED",
-    "doc": "The response time in milliseconds"
+    "mode": "REQUIRED"
   }
 ]
