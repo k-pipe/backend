@@ -25,13 +25,9 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 363.0.0'
-    - name: 'Version‚ gcloud CLI'
-      run: gcloud info
     - name: Activate service account
       run: gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
     - name: Set project
       run: gcloud config set project green-k8s
-    - name: Install gke auth plugin
-      run: gcloud components install gke-gcloud-auth-plugin
     - name: Terraform
       run:  cd terraform && terraform init && terraform apply --auto-approve && cd ..
