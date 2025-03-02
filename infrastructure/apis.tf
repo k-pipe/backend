@@ -8,7 +8,8 @@ variable "gcp_apis" {
     "bigquery",
     "pubsub",
     "storage",
-    "cloudfunctions"
+    "cloudfunctions",
+    "cloudbuild"
   ]
 }
 
