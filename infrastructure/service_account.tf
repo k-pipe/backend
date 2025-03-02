@@ -12,7 +12,7 @@ data "google_project" "project" {
 }
 
 resource "google_service_account_iam_member" "member" {
-  service_account_id = "projects/-/serviceAccounts/${data.google_project.project.number}-compute@developer.gserviceaccount.com"
+  service_account_id = google_service_account.cloud_function_service_account.account_id
   role               = "roles/iam.serviceAccountUser"
-  member             = "serviceAccount:${google_service_account.cloud_function_service_account.email}"
+  member             = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
 }
