@@ -29,5 +29,13 @@ jobs:
       run: gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
     - name: Set project
       run: gcloud config set project green-k8s
-    - name: Terraform
-      run:  cd terraform && terraform init && terraform apply --auto-approve && cd ..
+    - name: 'Terraform Setup'
+      uses: hashicorp/setup-terraform@v1
+    - name: 'Terraform Init'
+      run: terraform init
+    - name: 'Terraform Validate'
+      run: terraform validate
+    - name: 'Terraform Plan'
+      run: terraform plan
+    - name: 'Terraform Apply'
+      run: terraform apply -auto-approve
