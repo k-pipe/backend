@@ -24,3 +24,12 @@ resource "google_project_iam_member" "permissions_pubsub_serviceaccount" {
 #  role               = "roles/iam.serviceAccountUser"
 #  member             = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
 #}
+
+
+# permissions for service account to write to bigquery tables
+#resource "google_project_iam_member" "permissions_pubsub_serviceaccount" {
+#  project  = var.project_id
+#  for_each = toset(["roles/bigquery.dataEditor", "roles/bigquery.metadataViewer", "roles/pubsub.publisher", "roles/pubsub.subscriber"])
+#  role     = each.value
+#  member   = join("", ["serviceAccount:service-",local.project_number, "@gcp-sa-pubsub.iam.gserviceaccount.com"])
+#}
