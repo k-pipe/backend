@@ -11,6 +11,14 @@ data "google_project" "project" {
   project_id = var.project_id
 }
 
+# permissions for service account to write to bigquery tables
+resource "google_project_iam_member" "permissions_pubsub_serviceaccount" {
+  project  = var.project_id
+  for_each = toset(["roles/bigquery.dataEditor", "roles/bigquery.metadataViewer", "roles/pubsub.publisher", "roles/pubsub.subscriber"])
+  role     = each.value
+  member   = join(":", ["serviceAccount",google_service_account.cloud_function_service_account.email])
+}
+
 #resource "google_service_account_iam_member" "member" {
 #  service_account_id = google_service_account.cloud_function_service_account.id
 #  role               = "roles/iam.serviceAccountUser"
