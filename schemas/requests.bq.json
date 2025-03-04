@@ -24,19 +24,19 @@
     "type": "JSON"
   },
   {
-    "doc": "A JSON string representing the request body",
+    "description": "A JSON string representing the request body",
     "name": "request_body",
     "type": "JSON",
     "mode": "REQUIRED"
   },
   {
-    "doc": "A JSON string representing the response body",
+    "description": "A JSON string representing the response body",
     "name": "response_body",
     "type": "JSON",
     "mode": "REQUIRED"
   },
   {
-    "doc": "The response time in milliseconds",
+    "description": "The response time in milliseconds",
     "name": "response_time",
     "type": "INTEGER",
     "mode": "REQUIRED"
